@@ -1,0 +1,53 @@
+{
+  "name": "gastoscompartidos-mcp-server",
+  "version": "1.0.0",
+  "description": "MCP Server for Gastos Compartidos - Standalone deployment for LLM integration",
+  "main": "src/server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "build": "echo 'No build needed for Node.js'",
+    "test": "node --test src/tests/*.test.js",
+    "deploy:vercel": "vercel --prod",
+    "deploy:railway": "railway up",
+    "deploy:render": "echo 'Push to main branch to deploy on Render'"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "expenses", 
+    "llm",
+    "assistant",
+    "gastos-compartidos"
+  ],
+  "author": "Gastos Compartidos",
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^0.5.0",
+    "axios": "^1.6.0",
+    "express": "^4.18.0",
+    "cors": "^2.8.5",
+    "winston": "^3.11.0",
+    "joi": "^17.11.0",
+    "dotenv": "^16.3.0",
+    "helmet": "^7.1.0",
+    "compression": "^1.7.4",
+    "rate-limiter-flexible": "^4.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "nodemon": "^3.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tu-usuario/gastoscompartidos-mcp-server.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tu-usuario/gastoscompartidos-mcp-server/issues"
+  },
+  "homepage": "https://github.com/tu-usuario/gastoscompartidos-mcp-server#readme"
+}
