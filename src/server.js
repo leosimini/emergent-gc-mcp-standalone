@@ -427,9 +427,26 @@ class StandaloneMCPServer {
   }
 }
 
-// Start server
+// Initialize server instance once so it can be reused across invocations
 const server = new StandaloneMCPServer();
-server.start().catch(error => {
-  logError(error, { context: 'Server initialization' });
-  process.exit(1);
-});
+
+// Detect if we are running in a serverless/Vercel environment
+const isServerless = Boolean(process.env.VERCEL);
+
+if (!isServerless) {
+  server.start().catch(error => {
+    logError(error, { context: 'Server initialization' });
+    process.exit(1);
+  });
+} else {
+  logger.info('MCP Server initialized in serverless mode', {
+    environment: CONFIG.NODE_ENV,
+    agentApiUrl: CONFIG.AGENT_API_URL,
+    tools: Array.from(server.tools.keys())
+  });
+}
+
+// Export Express app for serverless runtimes like Vercel
+export const app = server.app;
+export default server.app;
+
