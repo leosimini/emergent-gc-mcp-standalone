@@ -1,17 +1,27 @@
 {
   "version": 2,
   "name": "gastoscompartidos-mcp-server",
+  "builds": [
+    {
+      "src": "src/server.js",
+      "use": "@vercel/node",
+      "config": {
+        "includeFiles": ["src/**", "logs/**"]
+      }
+    }
+  ],
   "routes": [
-    { "src": "/(.*)", "dest": "src/server.js" }
+    {
+      "src": "/(.*)",
+      "dest": "src/server.js"
+    }
   ],
   "env": {
     "NODE_ENV": "production"
   },
   "functions": {
     "src/server.js": {
-      "runtime": "nodejs20.x",
-      "maxDuration": 30,
-      "includeFiles": ["src/**"]
+      "maxDuration": 30
     }
   }
 }
