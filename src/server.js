@@ -16,7 +16,7 @@ import { logger, logStartup, logRequest, logError, logHealthCheck } from './util
 import { apiKeyAuth } from './auth/api-key-auth.js';
 
 // Import tools (these would be copied from the original implementation)
-import { ListMySheetsool } from './tools/list-my-sheets.js';
+import { ListMySheetsTool } from './tools/list-my-sheets.js';
 import { GetSheetSummaryTool } from './tools/get-sheet-summary.js';
 
 class StandaloneMCPServer {
@@ -30,7 +30,7 @@ class StandaloneMCPServer {
 
     // Initialize tools
     this.tools = new Map([
-      ['list_my_sheets', new ListMySheetsool()],
+      ['list_my_sheets', new ListMySheetsTool()],
       ['get_sheet_summary', new GetSheetSummaryTool()],
     ]);
 
