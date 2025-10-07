@@ -4,7 +4,7 @@
  */
 
 import { BaseTool } from './base-tool.js';
-import { CONFIG } from '../config.js';
+import { CONFIG } from '../config/environment.js';
 
 export class ListMySheetsool extends BaseTool {
   constructor() {

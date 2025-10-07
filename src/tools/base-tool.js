@@ -3,7 +3,7 @@
  */
 
 import axios from 'axios';
-import { CONFIG } from '../config.js';
+import { CONFIG } from '../config/environment.js';
 import { logger, logToolUsage, logError } from '../utils/logger.js';
 
 export class BaseTool {
@@ -25,7 +25,7 @@ export class BaseTool {
       
       const config = {
         method,
-        url: `${CONFIG.BACKEND_URL}${CONFIG.AGENT_API_PREFIX}${endpoint}`,
+        url: `${CONFIG.AGENT_API_URL}${CONFIG.AGENT_API_PREFIX}${endpoint}`,
         headers: {
           'Authorization': `Bearer ${authToken}`,
           'Content-Type': 'application/json',
