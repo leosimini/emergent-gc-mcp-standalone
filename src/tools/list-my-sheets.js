@@ -4,9 +4,9 @@
  */
 
 import { BaseTool } from './base-tool.js';
-import { CONFIG } from '../config.js';
+import { CONFIG } from '../config/environment.js';
 
-export class ListMySheetsool extends BaseTool {
+export class ListMySheetsTool extends BaseTool {
   constructor() {
     super(
       'list_my_sheets',
